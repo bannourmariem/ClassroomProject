@@ -42,9 +42,6 @@ class EtudiantController extends AbstractController
         ]);
     }
 
-
-
-
     #[Route('/{id}', name: 'app_etudiant_show', methods: ['GET'])]
     public function show(Etudiant $etudiant): Response
     {
@@ -52,9 +49,6 @@ class EtudiantController extends AbstractController
             'etudiant' => $etudiant,
         ]);
     }
-
-
-
 
     #[Route('/{id}/edit', name: 'app_etudiant_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Etudiant $etudiant, EntityManagerInterface $entityManager): Response
@@ -73,9 +67,6 @@ class EtudiantController extends AbstractController
             'form' => $form,
         ]);
     }
-
-
-
 
     #[Route('/{id}', name: 'app_etudiant_delete', methods: ['POST'])]
     public function delete(Request $request, Etudiant $etudiant, EntityManagerInterface $entityManager): Response

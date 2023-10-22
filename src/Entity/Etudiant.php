@@ -90,6 +90,7 @@ class Etudiant
 
     /**
      * @return Collection<int, self>
+     
      */
     public function getEtudiants(): Collection
     {
@@ -104,8 +105,8 @@ class Etudiant
         }
 
         return $this;
-    }
-
+    }     
+ 
     public function removeEtudiant(self $etudiant): static
     {
         if ($this->etudiants->removeElement($etudiant)) {
@@ -117,4 +118,11 @@ class Etudiant
 
         return $this;
     }
+
+
+    //il faut ajouter cette methode 
+    public function __toString(){
+        return $this->name;
+    }
+
 }

@@ -19,6 +19,8 @@ class Classroom
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
 
+   
+
     public function getId(): ?int
     {
         return $this->id;
@@ -47,4 +49,13 @@ class Classroom
 
         return $this;
     }
+
+
+
+    public function __toString(){
+        return $this->name;
+    }
+
 }
+
+

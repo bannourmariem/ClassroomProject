@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Etudiant index{% endblock %}
+{% block title %}lise des etudiants {% endblock %}
+
 
 {% block stylesheets %}
     {{ parent() }}
  <!-- Include Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+ 
 {% endblock %}
 
 {% block body %}
@@ -29,9 +31,9 @@
                 <td>{{ etudiant.email }}</td>
                 <td>{{ etudiant.age }}</td>
                 <td>
-          <a href="{{ path('app_classroom_show', {'id': classroom.id}) }}" class="btn btn-info">Show</a>
-          <a href="{{ path('app_classroom_edit', {'id': classroom.id}) }}" class="btn btn-warning">Edit</a>
-          <a href="{{ path('app_classroom_delete', {'id': classroom.id}) }}" class="btn btn-danger">Delete</a>
+                    <a href="{{ path('app_etudiant_show', {'id': etudiant.id}) }}" class="btn btn-info">Show</a>
+                    <a href="{{ path('app_etudiant_edit', {'id': etudiant.id}) }}" class="btn btn-warning">Edit</a>
+                    <a href="{{ path('app_etudiant_delete', {'id': etudiant.id}) }}" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
         {% else %}
@@ -42,5 +44,5 @@
         </tbody>
     </table>
 
-        <a href="{{ path('app_etudiant_new', {'id': etudiant.id}) }}" class="btn btn-danger">Create new</a>
+    <a href="{{ path('app_etudiant_new') }}">Create new</a>
 {% endblock %}
