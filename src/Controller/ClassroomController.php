@@ -14,6 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/classroom')]
 class ClassroomController extends AbstractController
 {
+
     #[Route('/', name: 'app_classroom_index', methods: ['GET'])]
     public function index(ClassroomRepository $classroomRepository): Response
     {
@@ -24,7 +25,7 @@ class ClassroomController extends AbstractController
 
 
 //methode pour ajouter 
-    #[Route('/new', name: 'app_classroom_new', methods: ['GET', 'POST'])]
+    #[Route('/new', name: 'app_classroom_new')]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $classroom = new Classroom();
@@ -35,7 +36,7 @@ class ClassroomController extends AbstractController
             $entityManager->persist($classroom);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_classroom_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_classroom_index');
         }
 
         return $this->render('classroom/new.html.twig', [
@@ -49,7 +50,7 @@ class ClassroomController extends AbstractController
 
 
 
-    #[Route('/{id}', name: 'app_classroom_show', methods: ['GET'])]
+    #[Route('/{ref}', name: 'app_classroom_show')]
     public function show(Classroom $classroom): Response
     {
         return $this->render('classroom/show.html.twig', [
@@ -59,7 +60,7 @@ class ClassroomController extends AbstractController
 
 
 
-    #[Route('/{id}/edit', name: 'app_classroom_edit', methods: ['GET', 'POST'])]
+    #[Route('/{ref}/edit', name: 'app_classroom_edit',)]
     public function edit(Request $request, Classroom $classroom, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(ClassroomType::class, $classroom);
@@ -68,7 +69,7 @@ class ClassroomController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_classroom_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_classroom_index',);
         }
 
         return $this->render('classroom/edit.html.twig', [
@@ -79,14 +80,15 @@ class ClassroomController extends AbstractController
 
     
 
-    #[Route('/{id}', name: 'app_classroom_delete', methods: ['POST'])]
+    #[Route('/{ref}', name: 'app_classroom_delete')]
     public function delete(Request $request, Classroom $classroom, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$classroom->getId(), $request->request->get('_token'))) {
+        
+        
             $entityManager->remove($classroom);
             $entityManager->flush();
-        }
+        
 
-        return $this->redirectToRoute('app_classroom_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_classroom_index');
     }
 }

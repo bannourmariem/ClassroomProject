@@ -11,7 +11,7 @@ class Classroom
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $ref = null;
 
     #[ORM\Column(length: 255)]
     private ?string $name = null;
@@ -21,9 +21,9 @@ class Classroom
 
    
 
-    public function getId(): ?int
+    public function getRef(): ?int
     {
-        return $this->id;
+        return $this->ref;
     }
 
     public function getName(): ?string

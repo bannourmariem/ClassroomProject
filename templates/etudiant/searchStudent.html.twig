@@ -1,0 +1,15 @@
+<form method'post' action="/student/dql"     >
+    <label>search by name </label>
+    <input type='text>
+    
+    
+    {% for st in students %}
+    {{st.id}}
+    {{st.name}}
+    {{st.email}}
+    {{st.age}}
+    
+    
+    
+    
+    {% endfor%}

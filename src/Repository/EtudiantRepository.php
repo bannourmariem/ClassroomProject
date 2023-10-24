@@ -45,4 +45,17 @@ class EtudiantRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+
+    public function fetchEtudiantByName($name)
+{
+    $em = $this->getEntityManager();
+    $req = $em->createQuery("SELECT s FROM App\Entity\Etudiant s WHERE s.name = :n");
+    $req->setParameter('n', $name);
+    $result = $req->getResult();
+
+    return $result;
+}
+
+
 }

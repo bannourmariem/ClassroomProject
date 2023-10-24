@@ -78,4 +78,51 @@ class EtudiantController extends AbstractController
 
         return $this->redirectToRoute('app_etudiant_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    #[Route('/dql', name: 'dql')]
+    public function sqlEtudiant (Request $request ,EntityManagerInterface $em) : response {
+          $req=$em->createQuery("select s from App\Entity\Etudiant s.name= :n"); // select * from Student 
+            if ($request->isMethod('post')){
+                $value=$request->get('test');
+                $req->setParameter('n',$value);
+                $result=$req->getResult();
 }
+          $result=$req->getResult ();
+//dd($result)
+return $this->render('student/searchEtudiant.html.twig',[
+"etudiants"=>$result
+]);
+    }
+
+
+
+    #[Route('/dqlTwo', name: 'dqlTwo')]
+    public function sqlStudent (Request $request ,EntityManagerInterface $em) : response {
+          $req=$em->createQuery("select s from App\Entity\Etudiant where s.name= :n"); // select * from Student 
+if ($request->isMethod('post')){
+$value=$request->get('test');
+$req->setParameter('n',$value);
+$result=$req->getResult();
+}
+          $result=$req->getResult ();
+//dd($result)
+return $this->render('student/searchEtudiant.html.twig',[
+"etudiants"=>$result
+]);
+}  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+ 

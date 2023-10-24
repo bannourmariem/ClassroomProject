@@ -28,6 +28,8 @@ class Etudiant
     private ?self $classroom = null;
 
     #[ORM\OneToMany(mappedBy: 'classroom', targetEntity: self::class)]
+    #[ORM\JoinColumn(name:'nc_id',referencedColumnName:'ref')]
+
     private Collection $etudiants;
 
     public function __construct()

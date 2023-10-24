@@ -20,6 +20,7 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Age</th>
+                <th>Classroom</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -30,6 +31,7 @@
                 <td>{{ etudiant.name }}</td>
                 <td>{{ etudiant.email }}</td>
                 <td>{{ etudiant.age }}</td>
+                <td>{{ etudiant.classroom }}</td>
                 <td>
                     <a href="{{ path('app_etudiant_show', {'id': etudiant.id}) }}" class="btn btn-info">Show</a>
                     <a href="{{ path('app_etudiant_edit', {'id': etudiant.id}) }}" class="btn btn-warning">Edit</a>

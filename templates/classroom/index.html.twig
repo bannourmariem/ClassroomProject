@@ -26,13 +26,13 @@
         <tbody>
         {% for classroom in classrooms %}
             <tr>
-                <td>{{ classroom.id }}</td>
+                <td>{{ classroom.ref }}</td>
                 <td>{{ classroom.name }}</td>
                 <td>{{ classroom.createdAt ? classroom.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-          <a href="{{ path('app_classroom_show', {'id': classroom.id}) }}" class="btn btn-info">Show</a>
-          <a href="{{ path('app_classroom_edit', {'id': classroom.id}) }}" class="btn btn-warning">Edit</a>
-          <a href="{{ path('app_classroom_delete', {'id': classroom.id}) }}" class="btn btn-danger">Delete</a>
+          <a href="{{ path('app_classroom_show', {'ref': classroom.ref}) }}" class="btn btn-info">Show</a>
+          <a href="{{ path('app_classroom_edit', {'ref': classroom.ref}) }}" class="btn btn-warning">Edit</a>
+          <a href="{{ path('app_classroom_delete', {'ref': classroom.ref}) }}" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
         {% else %}

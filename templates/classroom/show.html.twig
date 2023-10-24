@@ -15,7 +15,7 @@
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ classroom.id }}</td>
+                <td>{{ classroom.ref }}</td>
             </tr>
             <tr>
                 <th>Name</th>
@@ -28,8 +28,8 @@
         </tbody>
     </table>
 
- <a href="{{ path('app_classroom_index', {'id': classroom.id}) }}" class="btn btn-danger">back to list</a>
- <a href="{{ path('app_classroom_edit', {'id': classroom.id}) }}" class="btn btn-danger">edit</a>
+ <a href="{{ path('app_classroom_index', {'ref': classroom.ref}) }}" class="btn btn-danger">back to list</a>
+ <a href="{{ path('app_classroom_edit', {'ref': classroom.ref}) }}" class="btn btn-danger">edit</a>
     
 
     {{ include('classroom/_delete_form.html.twig') }}

@@ -14,5 +14,5 @@
 
     {{ include('classroom/_form.html.twig') }}
 
-    <a href="{{ path('app_classroom_index', {'id': classroom.id}) }}" class="btn btn-danger">back to the liste </a>
+    <a href="{{ path('app_classroom_index', {'ref': classroom.ref}) }}" class="btn btn-danger">back to the liste </a>
 {% endblock %}
